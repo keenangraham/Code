@@ -1,2 +1,2 @@
 
-Code Snippets 
+Code snippets. 
