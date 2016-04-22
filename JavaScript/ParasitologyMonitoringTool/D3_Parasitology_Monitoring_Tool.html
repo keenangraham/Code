@@ -1,22 +1,61 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
 <html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" type="text/css" href="monitoring_tool.css">
 
         <title>Parasitology Sample Monitoring</title>
+
+        <link rel="stylesheet" type="text/css" href="monitoring_tool.css">
+        <link href="bs/css/bootstrap.min.css" rel="stylesheet">
+
         <script type="text/javascript" src="d3.v3.js"></script>
         <script type="text/javascript" src="index.js"></script>
-        <header>Parasitology Sample Monitoring</header>
+        
     </head>
     <body>
 
-    <center>
-        <div></div>
-    </center>
+    <br>
+    <br>
+    <br>
+    <br>
 
+    <div class="row">    
+    <div class="col-xs-1 col-md-1"></div>
+    <div class="col-xs-3 col-md-3">
+
+    <div style="position: fixed">
+    <center>
+        <h2>Sample overview</h2>
+        <p class="lead">Parasitology monitoring tool</p>
+        <p> 
+        <button type="button" class="btn btn-default">Result</button> 
+        <button type="button" class="btn btn-default">Ward Name</button> 
+        <button type="button" class="btn btn-default">Technician</button></p>
+    </center>
+    </div>
+    </div>
+   
+
+
+    <div class="col-xs-12 col-md-8" >
+
+
+        <center>
+            <div id="viz"></div>
+        </center>
+
+    </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="bs/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="monitoring_tool.js"></script> 
+
        
     </body>
 </html>
