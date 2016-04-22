@@ -3,7 +3,7 @@
            d3.json("datatest.json", function(error, Data) {
                    
 
-            var rowsNeeded = Math.ceil(Data.length/10)
+            var rowsNeeded = Math.ceil(Data.length/20)
 
             var dataLength = d3.range(1, Data.length + 1)
 
@@ -50,12 +50,16 @@
                         .attr("class", "tooltip")               
                         .style("opacity", 0); */
 
+           
+
+            var color = d3.scale.category20(); 
 
 
-            var canvas = d3.select("div")
+
+            var canvas = d3.select("#viz")
                             .append("svg")
                             .attr("width", spr*41)
-                            .attr("height", rowsNeeded*20);
+                            .attr("height", rowsNeeded*38);
 
             canvas.call(tip);
 
@@ -91,7 +95,6 @@
                                 } else {
                                     return "#b2df8a";
                                 }})
-                    
                                 .on("mouseover", function(d) { 
                                     d3.select(this)
                                     .style({fill:"#1f78b4"}); 
@@ -108,7 +111,25 @@
 
                                     }); 
                                     tip.hide(d);
-                                });
+                                })
+                                  .on("click", function(d) { 
+                                    d3.selectAll("circle")
+                                    .transition()
+                                    .delay(500)
+                                    .duration(1000)
+                                    .attr("r", 30)
+                                    .style({fill:"#bebada"})
+                                    .transition()
+                                    .duration(1000)
+                                    .attr("r", 10)
+                                    .style({fill:"#fb8072"})
+                                    .transition()
+                                    .duration(2000)
+                                    .style("fill", function(d) {
+                                        return color(d.Order_ID); 
+                                    })
+                                    .attr("r", 15); 
+                                    });
                                 
 
 
@@ -132,4 +153,3 @@
 });
 
    
-
