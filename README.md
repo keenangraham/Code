@@ -15,7 +15,7 @@
 <br>
 <p align="center">
 <a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/CDIFF_Hypothesis_Testing.ipynb">
-  <img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/CDiffDiff.png">
+  <img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/CDiffDiff.png" height="500">
 </a>
 </p>
 
