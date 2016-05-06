@@ -1,8 +1,8 @@
 
 # Code Snippets #
 
-### Python examples for data wrangling and visualization:  ### 
-![](https://github.com/keenangraham/keenangraham.github.io/blob/master/project/results/Overview.png width="48")
+### Python examples for data wrangling and visualization:
+<img src="https://github.com/keenangraham/keenangraham.github.io/blob/master/project/results/Overview.png" width="48">
 * [Intestinal Protozoa Data Merge and Summary Statistics/Visualization] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/MergeVizStat.ipynb)
 * [*Clostridium Difficile* Data Merge and Summary Statistics/Visualization] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/CDIFF_Summary.ipynb)
 
