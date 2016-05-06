@@ -30,6 +30,6 @@
 * [Parasitology Monitoring Tool] (https://github.com/keenangraham/ResultsMonitoringTools/blob/master/PMT_alpha.js)
 <br>
 <p align="center">
-<a href="https://github.com/keenangraham/ResultsMonitoringTools/blob/master/PMT_alpha.js"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/mtr.png" align="middle"></a>
-<a href="https://github.com/keenangraham/ResultsMonitoringTools/blob/master/PMT_alpha.js"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/mto.png" align="middle"></a>
+<a href="https://github.com/keenangraham/ResultsMonitoringTools/blob/master/PMT_alpha.js"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/mtr.png" align="middle" width="350">
+</a> <a href="https://github.com/keenangraham/ResultsMonitoringTools/blob/master/PMT_alpha.js"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/mto.png" align="middle" width="350"></a>
 </p>
