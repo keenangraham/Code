@@ -27,7 +27,7 @@
 <a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/CDIFF_Summary.ipynb"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/CDIFFsum.png" align="middle"></a></p>
 
 #### Interactive visualizations in D3.js (JavaScript, CSS, and HTML):
-* [Parasitology Monitoring Tool Code] (https://github.com/keenangraham/ResultsMonitoringTools/blob/master/PMT_alpha.js)
+* [Parasitology Monitoring Tool (JavaScript Code)] (https://github.com/keenangraham/ResultsMonitoringTools/blob/master/PMT_alpha.js)
 <br>
 <p align="center">
 <a href="https://github.com/keenangraham/ResultsMonitoringTools/blob/master/PMT_alpha.js"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/mtr.png" align="middle" width="400" >
