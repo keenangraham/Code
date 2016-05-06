@@ -5,7 +5,7 @@
 * [Intestinal Protozoa Data Merge and Summary Statistics/Visualization] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/MergeVizStat.ipynb)
 <br>
 <p align="center">
-<a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/MergeVizStat.ipynb"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/Overview.png" align="middle" height="600"></a></p>
+<a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/MergeVizStat.ipynb"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/Overview.png" align="middle" height="900"></a></p>
 <br>
 * [*Clostridium Difficile* Data Merge and Summary Statistics/Visualization] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/CDIFF_Summary.ipynb)
 <br>
