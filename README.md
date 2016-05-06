@@ -11,3 +11,6 @@
 <a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/Seasonal_Daily_Monthly_Parasitology_Results.ipynb"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/Seasonal_Positivity.png" width="400"></a>
 <br>
 * [Testing for a Significant Annual Difference in *Clostridium Difficile* Positivity] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/CDIFF_Hypothesis_Testing.ipynb)
+<br>
+<a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/CDIFF_Hypothesis_Testing.ipynb"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/CDiffDiff.png" width="250"></a>
+<br>
