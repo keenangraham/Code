@@ -1,5 +1,5 @@
 
-# Code snippets. #
+# Code Snippets #
 
 Python examples for data wrangling and visualization:
 * [Intestinal Protozoa Data Merge and Summary Statistics/Visualization] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/MergeVizStat.ipynb)
