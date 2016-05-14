@@ -33,3 +33,8 @@
 <a href="http://keenangraham.github.io/code/PMT_Demo/MonitoringTool.html"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/mtr.png" align="middle" width="400" >
 </a> <a href="http://keenangraham.github.io/code/PMT_Demo/MonitoringTool.html"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/mto.png" align="middle" width="400" ></a>
 </p>
+
+* [Every Combination of Positive Parasitology Result Observed in 2014-2015 by Organism] (http://keenangraham.github.io/code/combination_tree/Organism_Cobo_Viz.html)
+<br>
+<p align="center">
+<a href="http://keenangraham.github.io/code/combination_tree/Organism_Cobo_Viz.html"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/Organism_Combo_Preview.png" align="middle"></a></p>
