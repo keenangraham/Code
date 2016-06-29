@@ -25,6 +25,11 @@
 <br>
 <p align="center">
 <a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/CDIFF_Summary.ipynb"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/CDIFFsum.png" align="middle"></a></p>
+<br>
+* [Parasitology Turnaround Time Visualization] (https://github.com/keenangraham/Code/blob/master/Python/TAT_Viz.ipynb)
+<br>
+<p align="center">
+<a href="https://github.com/keenangraham/Code/blob/master/Python/TAT_Viz.ipynb"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/TAT_FY2016.png" align="middle" height="750"></a></p>
 
 #### Interactive visualizations in D3.js (JavaScript, CSS, and HTML):
 * [Parasitology Monitoring Tool] (http://keenangraham.github.io/code/PMT_Demo/MonitoringTool.html) [(JavaScript Code)] (https://github.com/keenangraham/ResultsMonitoringTools/blob/master/PMT_alpha.js)
