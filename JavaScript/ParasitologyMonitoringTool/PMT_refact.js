@@ -472,7 +472,7 @@ function main(Data){
         var selection = d3.select("body")
                     .select(".col-md-3")
                     .select("#ColorLegend")
-                    .selectAll(".form-inline").data(nest);
+                    .selectAll(".row-fluid").data(nest);
 
         var updateColor = selection.select(".legendColor")
                                 .style("background", function (d) {
