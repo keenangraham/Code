@@ -258,6 +258,16 @@ div.tooltip {
 .bar:hover {
   fill: #d9534f;
 }
+
+.row-fluid{
+    height:26px;
+    overflow:hidden;
+}
+.form-inline{
+    height:60px;
+    overflow:auto
+ }
+ 
 ::-webkit-scrollbar {
  display: none;
  }
