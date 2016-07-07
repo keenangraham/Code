@@ -258,5 +258,7 @@ div.tooltip {
 .bar:hover {
   fill: #d9534f;
 }
-
+::-webkit-scrollbar {
+ display: none;
+ }
 
