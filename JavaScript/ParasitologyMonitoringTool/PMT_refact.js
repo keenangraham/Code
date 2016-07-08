@@ -1,16 +1,21 @@
 var defaultData = 1; 
 var x = 0;
 var y = 0;
+
 var Data;
+
 var view = ["Grid"];
 var state = ["Result"];
 var filter = ["Reset"];
 var sort = ["Default"];
+
 var wardCount = {};
 var organismCount = {};
 var techCount = {};
+
 var colorMap = {Positive:"#d95f02", Negative:"#b2df8a"};
 var color = d3.scale.category20();
+
 var parseDate = d3.time.format("%Y-%m-%d").parse;
 var formatTime = d3.time.format("%B %e, %Y");
 var formatTimeSmall = d3.time.format("%b %e, %Y");
@@ -63,6 +68,25 @@ function activeFilterBy(self){
     }
 }
 
+function enableButtons(){
+    d3.selectAll("button").property("disabled", false);
+    d3.select(".search").classed("collapse", false);
+    d3.select("#colorByCollapse").classed("collapse", false);
+    d3.select("#ColorLegend").classed("collapse", false);
+    d3.selectAll("#resizeCollapse").classed("collapse", false);
+
+}
+
+function disableButtons(){
+    d3.selectAll("button").property("disabled", true);
+    d3.select(".search").classed("collapse", true);
+    d3.select("#colorByCollapse").classed("collapse", true);
+    d3.select("#ColorLegend").classed("collapse", true);
+    d3.selectAll("#resizeCollapse").classed("collapse", true);
+    d3.select("#SampleDetails").classed("collapse", true);
+
+}
+
 function main(Data){
 
     var countBy = ["d.Ward_Name", "d.Organism", "d.Tech"];
@@ -77,7 +101,6 @@ function main(Data){
             for(var p = 0; p<count.length; p++){
                 wardCount[count[p].key] = count[p].values;
             }
-
         }else if (countBy[t] === "d.Organism"){
             var count = d3.nest()
                           .key(function(d) {return eval(countBy[t]);})
@@ -87,7 +110,6 @@ function main(Data){
             for(var p = 0; p<count.length; p++){
                 organismCount[count[p].key] = count[p].values;
             }
-
         }else if (countBy[t] === "d.Tech"){
             var count = d3.nest()
                           .key(function(d) {return eval(countBy[t]);})
@@ -97,7 +119,6 @@ function main(Data){
             for(var p = 0; p<count.length; p++){
                 techCount[count[p].key] = count[p].values;
             }
-
         }else{
 
         }
@@ -680,11 +701,23 @@ function main(Data){
                                                                             }else if(searchInput.match(/[a-z]{4}[a-z]?/i) || searchInput.match(/^[a-z]*, /i)){
                                                                                 if (d.Organism === searchInput.toUpperCase()){
                                                                                     return d.Organism === searchInput.toUpperCase();
-                                                                                }else{
+                                                                                }else if (d.Ward_Name.toUpperCase() === searchInput.toUpperCase()){
                                                                                     return d.Ward_Name.toUpperCase() === searchInput.toUpperCase();
 
-                                                                                } 
-                                                                            }});
+                                                                                }else{
+                                                                                    return d.Tech.toUpperCase() === searchInput.toUpperCase();
+                                                                                }
+                                                                            }else{
+                                                                                if (d.Organism === searchInput.toUpperCase()){
+                                                                                    return d.Organism === searchInput.toUpperCase();
+                                                                                }else if (d.Ward_Name.toUpperCase() === searchInput.toUpperCase()){
+                                                                                    return d.Ward_Name.toUpperCase() === searchInput.toUpperCase();
+
+                                                                                }else{
+                                                                                    return d.Tech.toUpperCase() === searchInput.toUpperCase();
+                                                                                }
+                                                                            }
+                                                                        });
 
                                     if (sel.empty()){
                                         d3.select("#search")
@@ -771,12 +804,12 @@ function main(Data){
                                                     .entries(Data.filter(function(d){return d.Positive === 1;}));
 
                                 var techTotal = d3.nest()
-                                					.key(function(d){return d.Tech;})
+                                                    .key(function(d){return d.Tech;})
                                                     .rollup(function(d){return d.length;})
                                                     .entries(Data);
 
                                 var techPositiveTotal = d3.nest()
-                                					.key(function(d){return d.Tech;})
+                                                    .key(function(d){return d.Tech;})
                                                     .rollup(function(d){return d.length;})
                                                     .entries(Data.filter(function(d){return d.Positive === 1;}));
 
@@ -791,7 +824,7 @@ function main(Data){
                                 });
 
                                 techTotal.forEach(function(d){
-                                		d.values = +d.values;
+                                        d.values = +d.values;
                                 });
 
                                 techPositiveTotal.forEach(function(d){
@@ -825,48 +858,30 @@ function main(Data){
 
                                 var techPercentageList = [];
                                 
-
                                 techTotal.forEach(function(d){
-                                		var techPercentage = {};
-                                		var z = 0;
-                                		for (var i = 0; i < techPositiveTotal.length; i++){
-                                			if(techPositiveTotal[i].key === d.key){
-                                				techPercentage["Tech"] = d.key;
-                                				techPercentage["Percent"] = (techPositiveTotal[i].values/d.values)*100;
-                                				techPercentage["Positive"] = techPositiveTotal[i].values;
-                                				techPercentage["Total"] = d.values;
-                                				z=1;
-                                			}else{
+                                        var techPercentage = {};
+                                        var z = 0;
+                                        for (var i = 0; i < techPositiveTotal.length; i++){
+                                            if(techPositiveTotal[i].key === d.key){
+                                                techPercentage["Tech"] = d.key;
+                                                techPercentage["Percent"] = (techPositiveTotal[i].values/d.values)*100;
+                                                techPercentage["Positive"] = techPositiveTotal[i].values;
+                                                techPercentage["Total"] = d.values;
+                                                z=1;
+                                            }else{
 
-                                			}
-                                		}
-                                		if (z === 0){
-                                				techPercentage["Tech"] = d.key;
-                                				techPercentage["Percent"] = 0;
-                                				techPercentage["Positive"] = 0;
-                                				techPercentage["Total"] = d.values;
-                                		}else{
+                                            }
+                                        }
+                                        if (z === 0){
+                                                techPercentage["Tech"] = d.key;
+                                                techPercentage["Percent"] = 0;
+                                                techPercentage["Positive"] = 0;
+                                                techPercentage["Total"] = d.values;
+                                        }else{
 
-                                		}
-                                		techPercentageList.push(techPercentage);
+                                        }
+                                        techPercentageList.push(techPercentage);
                                 });
-
-                                 /*svg.selectAll("line.horizontalGrid")
-                                    .data(yScale.ticks(10)).enter()
-                                    .append("line")
-                                    .attr(
-                                    {
-                                        "class":"horizontalGrid",
-                                        "x1" : 0,
-                                        "x2" : width,
-                                        "y1" : function(d){ return yScale(d);},
-                                        "y2" : function(d){ return yScale(d);},
-                                        "fill" : "none",
-                                        "shape-rendering" : "crispEdges",
-                                        "stroke" : "lightgrey",
-                                        "stroke-width" : "1px",
-                                        "opacity": "0.7"
-                                    });*/
 
                                 function makeBarChart(input){
                                     if (input === 0){
@@ -1108,11 +1123,12 @@ function main(Data){
                                 }
 
                                 function makeHorizontalBarChart(){
+
                                     var orgCount = organismCount;
                                     delete orgCount["NONE"];
                                     var margin = {top: 30, right: 20, bottom: 90, left: 220};
                                     var width = (parseInt(d3.select('.chartLayout').style('width'), 10) - margin.left - margin.right);
-                                    var height = ((800/Object.keys(orgCount).length)*Object.keys(orgCount).length)- margin.top - margin.bottom;
+                                    var height = ((800/Object.keys(orgCount).length)*Object.keys(orgCount).length) - margin.top - margin.bottom;
 
                                     var xScale = d3.scale.log()
                                                     .domain(d3.extent(Object.keys(orgCount).map(function(d){return organismCount[d];})))
@@ -1149,12 +1165,6 @@ function main(Data){
                                     svg.append("g")
                                       .attr("class", "y axis")
                                       .call(yAxis);
-                                      /*.append("text")
-                                      .attr("transform", "rotate(-90)")
-                                      .attr("y", 6)
-                                      .attr("dy", ".71em")
-                                      .style("text-anchor", "end")
-                                      .text("Daily Total");*/
 
                                     svg.selectAll(".bar")
                                           .data(Object.keys(orgCount))
@@ -1196,16 +1206,6 @@ function main(Data){
                                         .style("text-anchor", "middle")
                                         .text("Organism");
 
-                                    /*svg.append("text")
-                                        .attr("transform", "translate(" + (width) + " ," + (yScale(dailyAverage)) + ")")
-                                        .style("text-anchor", "end")
-                                        .attr("dy", "-0.25em")
-                                        .attr("dx", "-.3em")
-                                        .text("Average")
-                                        .style("font", "10px sans-serif")
-                                        .style("fill", "#d9534f")
-                                        .style("font-weight", "bold");*/
-
                                     svg.append("text")
                                           .attr("class", "title")
                                           .attr("x", width/2)
@@ -1224,15 +1224,12 @@ function main(Data){
 
                                 function makeLevelChart(){
 
-                                	/*var xScale = d3.scale.identity()
-                                					.domain([0, width]);*/
+                                    techPercentageList = techPercentageList.filter(function(d){return +d.Total > 40;});
+                                    var margin = {top: 30, right: 35, bottom: 90, left: 100};
+                                    var width = (parseInt(d3.select('.chartLayout').style('width'), 10) - margin.left - margin.right);
+                                    var height = 900 - margin.top - margin.bottom;
 
-                                	techPercentageList = techPercentageList.filter(function(d){return +d.Total > 40;});
-                                	var margin = {top: 30, right: 35, bottom: 90, left: 100};
-                                	var width = (parseInt(d3.select('.chartLayout').style('width'), 10) - margin.left - margin.right);
-                                	var height = 900 - margin.top - margin.bottom;
-
-                                	var xScale = d3.scale.linear()
+                                    var xScale = d3.scale.linear()
                                                     .domain(d3.extent(techPercentageList, function(d) {return +d.Total;}))
                                                     .range([0, width]);
 
@@ -1241,8 +1238,8 @@ function main(Data){
                                                     .range([height, 0]);
 
                                     var lineColorScale = d3.scale.linear()
-                                    						.domain(d3.extent(techPercentageList, function(d) {return +d.Percent;}))
-                                    						.range(["black", "gray", "white"]);
+                                                            .domain(d3.extent(techPercentageList, function(d) {return +d.Percent;}))
+                                                            .range(["black", "gray", "white"]);
                                     
                                     var xAxis = d3.svg.axis()
                                                         .scale(xScale)
@@ -1273,12 +1270,6 @@ function main(Data){
                                       .attr("class", "y axis")
                                       .attr("transform", "translate(" + (-25) + ",0)")
                                       .call(yAxis);
-                                      /*.append("text")
-                                      .attr("transform", "rotate(-90)")
-                                      .attr("y", 6)
-                                      .attr("dy", ".71em")
-                                      .style("text-anchor", "end")
-                                      .text("Daily Total");*/
 
                                     svg.selectAll("line.horizontalTechYGrid")
                                         .data(techPercentageList).enter()
@@ -1297,7 +1288,7 @@ function main(Data){
                                             "opacity": "0.7"
                                         });
 
-                                     svg.selectAll("line.horizontalTechXGrid")
+                                    svg.selectAll("line.horizontalTechXGrid")
                                         .data(techPercentageList).enter()
                                         .append("line")
                                         .attr(
@@ -1315,21 +1306,16 @@ function main(Data){
                                         });
 
                                     var techText = svg.append("g")
-                                    					.attr("class", "techText")
-                                    					.selectAll("text")
-				                                    	.data(techPercentageList)
-				                                    	.enter()
-				                                    	.append("text")
-				                                    	.attr("y", function(d){return yScale(+d.Percent);})
-				                                    	.attr("x", function(d){return xScale(+d.Total);})
-				                                    	.attr("text-anchor", "middle")
-				                                    	.style("font-weight", "bold")
-				                                    	.text(function(d){return d.Tech;});
-				               
-                                    /*svg.append("text")
-                                        .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.bottom) + ")")
-                                        .style("text-anchor", "middle")
-                                        .text("Date");*/
+                                                        .attr("class", "techText")
+                                                        .selectAll("text")
+                                                        .data(techPercentageList)
+                                                        .enter()
+                                                        .append("text")
+                                                        .attr("y", function(d){return yScale(+d.Percent);})
+                                                        .attr("x", function(d){return xScale(+d.Total);})
+                                                        .attr("text-anchor", "middle")
+                                                        .style("font-weight", "bold")
+                                                        .text(function(d){return d.Tech;});
 
                                     svg.append("text")
                                         .attr("transform", "rotate(-90)")
@@ -1471,25 +1457,6 @@ d3.select("#upload").on("change", function () {
                                     }
 
                         });
-
-function enableButtons(){
-    d3.selectAll("button").property("disabled", false);
-    d3.select(".search").classed("collapse", false);
-    d3.select("#colorByCollapse").classed("collapse", false);
-    d3.select("#ColorLegend").classed("collapse", false);
-    d3.selectAll("#resizeCollapse").classed("collapse", false);
-
-}
-
-function disableButtons(){
-    d3.selectAll("button").property("disabled", true);
-    d3.select(".search").classed("collapse", true);
-    d3.select("#colorByCollapse").classed("collapse", true);
-    d3.select("#ColorLegend").classed("collapse", true);
-    d3.selectAll("#resizeCollapse").classed("collapse", true);
-    d3.select("#SampleDetails").classed("collapse", true);
-
-}
 
 if (defaultData === 1){
     d3.json("datamonth.json", function(error, Data) {main(Data);});
