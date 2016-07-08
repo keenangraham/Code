@@ -265,10 +265,6 @@ div.tooltip {
 }
 .form-inline{
     height:60px;
-    overflow:auto
+    overflow-x:auto;
+    overflow-y:hidden;
  }
- 
-::-webkit-scrollbar {
- display: none;
- }
-

@@ -423,7 +423,6 @@ function main(Data){
                             .append('div')
                             .attr("class", "row-fluid")
                             .append("div")
-                            .style("overflow", "auto")
                             .style("width", "90%")
                             .attr("class", "form-inline");
 
@@ -496,7 +495,6 @@ function main(Data){
                             .append('div')
                             .attr("class", "row-fluid")
                             .append("div")
-                            .style("overflow", "auto")
                             .style("width", "90%")
                             .attr("class", "form-inline");
 
@@ -772,6 +770,16 @@ function main(Data){
                                                     .rollup(function(d){return d.length;})
                                                     .entries(Data.filter(function(d){return d.Positive === 1;}));
 
+                                var techTotal = d3.nest()
+                                					.key(function(d){return d.Tech;})
+                                                    .rollup(function(d){return d.length;})
+                                                    .entries(Data);
+
+                                var techPositiveTotal = d3.nest()
+                                					.key(function(d){return d.Tech;})
+                                                    .rollup(function(d){return d.length;})
+                                                    .entries(Data.filter(function(d){return d.Positive === 1;}));
+
                                 dailyTotal.forEach(function(d){
                                         d.key = parseDate(d.key);
                                         d.values = +d.values;
@@ -779,6 +787,14 @@ function main(Data){
 
                                 dailyPositive.forEach(function(d){
                                         d.key = parseDate(d.key);
+                                        d.values = +d.values;
+                                });
+
+                                techTotal.forEach(function(d){
+                                		d.values = +d.values;
+                                });
+
+                                techPositiveTotal.forEach(function(d){
                                         d.values = +d.values;
                                 });
 
@@ -806,6 +822,35 @@ function main(Data){
                                     }
 
                                 }
+
+                                var techPercentageList = [];
+                                
+
+                                techTotal.forEach(function(d){
+                                		var techPercentage = {};
+                                		var z = 0;
+                                		for (var i = 0; i < techPositiveTotal.length; i++){
+                                			if(techPositiveTotal[i].key === d.key){
+                                				techPercentage["Tech"] = d.key;
+                                				techPercentage["Percent"] = (techPositiveTotal[i].values/d.values)*100;
+                                				techPercentage["Positive"] = techPositiveTotal[i].values;
+                                				techPercentage["Total"] = d.values;
+                                				z=1;
+                                			}else{
+
+                                			}
+                                		}
+                                		if (z === 0){
+                                				techPercentage["Tech"] = d.key;
+                                				techPercentage["Percent"] = 0;
+                                				techPercentage["Positive"] = 0;
+                                				techPercentage["Total"] = d.values;
+                                		}else{
+
+                                		}
+                                		techPercentageList.push(techPercentage);
+                                });
+
                                  /*svg.selectAll("line.horizontalGrid")
                                     .data(yScale.ticks(10)).enter()
                                     .append("line")
@@ -1065,7 +1110,6 @@ function main(Data){
                                 function makeHorizontalBarChart(){
                                     var orgCount = organismCount;
                                     delete orgCount["NONE"];
-                                    console.log(orgCount);
                                     var margin = {top: 30, right: 20, bottom: 90, left: 220};
                                     var width = (parseInt(d3.select('.chartLayout').style('width'), 10) - margin.left - margin.right);
                                     var height = ((800/Object.keys(orgCount).length)*Object.keys(orgCount).length)- margin.top - margin.bottom;
@@ -1178,9 +1222,148 @@ function main(Data){
 
                                 }
 
+                                function makeLevelChart(){
+
+                                	/*var xScale = d3.scale.identity()
+                                					.domain([0, width]);*/
+
+                                	techPercentageList = techPercentageList.filter(function(d){return +d.Total > 40;});
+                                	var margin = {top: 30, right: 35, bottom: 90, left: 100};
+                                	var width = (parseInt(d3.select('.chartLayout').style('width'), 10) - margin.left - margin.right);
+                                	var height = 900 - margin.top - margin.bottom;
+
+                                	var xScale = d3.scale.linear()
+                                                    .domain(d3.extent(techPercentageList, function(d) {return +d.Total;}))
+                                                    .range([0, width]);
+
+                                    var yScale = d3.scale.linear()
+                                                    .domain(d3.extent(techPercentageList, function(d) {return +d.Percent;}))
+                                                    .range([height, 0]);
+
+                                    var lineColorScale = d3.scale.linear()
+                                    						.domain(d3.extent(techPercentageList, function(d) {return +d.Percent;}))
+                                    						.range(["black", "gray", "white"]);
+                                    
+                                    var xAxis = d3.svg.axis()
+                                                        .scale(xScale)
+                                                        //.tickValues(xScale.domain().filter(function(d, i) { return !(i % 2); }))
+                                                        .orient("bottom");
+                                                       
+                                    var yAxis = d3.svg.axis()
+                                                        .scale(yScale)
+                                                        .orient("left");
+
+                                    var svg = d3.select(".chartLayout").append("svg")
+                                                .attr("width", width + margin.left + margin.right)
+                                                .attr("height", height + margin.top + margin.bottom)
+                                                .append("g")
+                                                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+                                    svg.append("g")
+                                            .attr("class", "x axis")
+                                            .attr("transform", "translate(0," + (height + 10 )+ ")")
+                                            .call(xAxis)
+                                            .selectAll("text")  
+                                            .style("text-anchor", "end")
+                                            .attr("dx", "-.8em")
+                                            .attr("dy", ".15em")
+                                            .attr("transform", "rotate(-65)" );
+
+                                    svg.append("g")
+                                      .attr("class", "y axis")
+                                      .attr("transform", "translate(" + (-25) + ",0)")
+                                      .call(yAxis);
+                                      /*.append("text")
+                                      .attr("transform", "rotate(-90)")
+                                      .attr("y", 6)
+                                      .attr("dy", ".71em")
+                                      .style("text-anchor", "end")
+                                      .text("Daily Total");*/
+
+                                    svg.selectAll("line.horizontalTechYGrid")
+                                        .data(techPercentageList).enter()
+                                        .append("line")
+                                        .attr(
+                                        {
+                                            "class":"horizontalTechYGrid",
+                                            "x1" : -25,
+                                            "x2" : function(d){return xScale(+d.Total);},
+                                            "y1" : function(d){return yScale(+d.Percent);},
+                                            "y2" : function(d){return yScale(+d.Percent);},
+                                            "fill" : "none",
+                                            "shape-rendering" : "crispEdges",
+                                            "stroke" : "#bdbdbd",
+                                            "stroke-width" : "1px",
+                                            "opacity": "0.7"
+                                        });
+
+                                     svg.selectAll("line.horizontalTechXGrid")
+                                        .data(techPercentageList).enter()
+                                        .append("line")
+                                        .attr(
+                                        {
+                                            "class":"horizontalTechXGrid",
+                                            "x1" : function(d){return xScale(+d.Total);},
+                                            "x2" : function(d){return xScale(+d.Total);},
+                                            "y1" : (height+10),
+                                            "y2" : function(d){return yScale(+d.Percent);},
+                                            "fill" : "none",
+                                            "shape-rendering" : "crispEdges",
+                                            "stroke" : "#bdbdbd",
+                                            "stroke-width" : "1px",
+                                            "opacity": "0.7"
+                                        });
+
+                                    var techText = svg.append("g")
+                                    					.attr("class", "techText")
+                                    					.selectAll("text")
+				                                    	.data(techPercentageList)
+				                                    	.enter()
+				                                    	.append("text")
+				                                    	.attr("y", function(d){return yScale(+d.Percent);})
+				                                    	.attr("x", function(d){return xScale(+d.Total);})
+				                                    	.attr("text-anchor", "middle")
+				                                    	.style("font-weight", "bold")
+				                                    	.text(function(d){return d.Tech;});
+				               
+                                    /*svg.append("text")
+                                        .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.bottom) + ")")
+                                        .style("text-anchor", "middle")
+                                        .text("Date");*/
+
+                                    svg.append("text")
+                                        .attr("transform", "rotate(-90)")
+                                        .attr("y", 0 - margin.left)
+                                        .attr("x",0 - (height / 2))
+                                        .attr("dy", "1em")
+                                        .style("text-anchor", "middle")
+                                        .text("Percent (%)");
+
+                                    svg.append("text")
+                                        .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.bottom - 15) + ")")
+                                        .style("text-anchor", "middle")
+                                        .text("Total Resulted");
+
+                                    svg.append("text")
+                                          .attr("class", "title")
+                                          .attr("x", width/2)
+                                          .attr("y", 0 - (margin.top / 2))
+                                          .attr("text-anchor", "middle")
+                                          .text("Technician Percent Versus Total Resulted")
+                                          .style("font-size", "16px")
+                                          .style("font-weight", "bold");
+
+                                    d3.select(".chartLayout")
+                                        .append("div")
+                                        .attr("class", "deleteMe")
+                                        .html("<br><br><br>");
+
+                                }
+
                                 makeBarChart(0);
                                 makeBarChart(1);
                                 makeLineChart();
+                                makeLevelChart();
                                 makeHorizontalBarChart();
 
                             }else{
