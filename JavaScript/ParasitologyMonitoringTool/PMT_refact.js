@@ -698,15 +698,6 @@ function main(Data){
                                                                                 return d.Date === searchInput;
                                                                             }else if(searchInput.match(/positive|negative/i)){
                                                                                 return d.Type === searchInput[0].toUpperCase() + searchInput.slice(1).toLowerCase();
-                                                                            }else if(searchInput.match(/[a-z]{4}[a-z]?/i) || searchInput.match(/^[a-z]*, /i)){
-                                                                                if (d.Organism === searchInput.toUpperCase()){
-                                                                                    return d.Organism === searchInput.toUpperCase();
-                                                                                }else if (d.Ward_Name.toUpperCase() === searchInput.toUpperCase()){
-                                                                                    return d.Ward_Name.toUpperCase() === searchInput.toUpperCase();
-
-                                                                                }else{
-                                                                                    return d.Tech.toUpperCase() === searchInput.toUpperCase();
-                                                                                }
                                                                             }else{
                                                                                 if (d.Organism === searchInput.toUpperCase()){
                                                                                     return d.Organism === searchInput.toUpperCase();
@@ -1008,8 +999,6 @@ function main(Data){
                                         .append("div")
                                         .attr("class", "deleteMe")
                                         .html("<br><br><br>");
-
-
 
                                 }
 
