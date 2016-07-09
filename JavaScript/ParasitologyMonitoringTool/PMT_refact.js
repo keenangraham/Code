@@ -843,17 +843,22 @@ function main(Data){
                                 dailyPositive.sort(function(a,b){return d3.ascending(a.key, b.key)});
 
                                 for (var t = 0, i = 0; t < dailyTotal.length; t++, i++){
-                                    if (dailyTotal[t].key.getTime() === dailyPositive[i].key.getTime()){
-                                        dailyPercentage[t] = {"key":" ", "values":" "};
-                                        dailyPercentage[t].key = dailyTotal[t].key; 
-                                        dailyPercentage[t].values = (dailyPositive[i].values/dailyTotal[t].values)*100;
-                                    }else{
-                                        dailyPercentage[t] = {"key":" ", "values":" "};
-                                        dailyPercentage[t].key = dailyTotal[t].key; 
-                                        dailyPercentage[t].values = 0;
-                                        i = i - 1;
-                                    }
-
+                                	if (i < dailyPositive.length){
+	                                    if (dailyTotal[t].key.getTime() === dailyPositive[i].key.getTime()){
+	                                        dailyPercentage[t] = {"key":" ", "values":" "};
+	                                        dailyPercentage[t].key = dailyTotal[t].key; 
+	                                        dailyPercentage[t].values = (dailyPositive[i].values/dailyTotal[t].values)*100;
+	                                    }else{
+	                                        dailyPercentage[t] = {"key":" ", "values":" "};
+	                                        dailyPercentage[t].key = dailyTotal[t].key; 
+	                                        dailyPercentage[t].values = 0;
+	                                        i = i - 1;
+	                                    }
+	                                }else{
+	                                        dailyPercentage[t] = {"key":" ", "values":" "};
+	                                        dailyPercentage[t].key = dailyTotal[t].key; 
+	                                        dailyPercentage[t].values = 0;
+	                                }
                                 }
 
                                 var techPercentageList = [];
