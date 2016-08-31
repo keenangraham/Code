@@ -2,6 +2,17 @@
 # Code Snippets 
 
 #### Python examples for hypothesis testing using simulation:
+* [Testing for Elevated Inflammatory Markers in Parasite-Positive Samples (Classical and Bayesian Approach) and Fitting Logistic Regression Model] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/ImmunoMarkersAnalysis.html)
+<br>
+<p align="center">
+<a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/ImmunoMarkersAnalysis.html">
+  <img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/lacto_para.PNG" height="300">
+</a>
+<a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/ImmunoMarkersAnalysis.html">
+  <img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/calpro_siga_crypto.PNG" height="300">
+</a>
+</p>
+<br>
 * [Testing for a Significant Seasonal Difference in Parasite Positivity] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/Seasonal_Daily_Monthly_Parasitology_Results.ipynb)
 <br>
 <p align="center">
