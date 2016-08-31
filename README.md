@@ -2,7 +2,7 @@
 # Code Snippets 
 
 #### Python examples for hypothesis testing using simulation:
-* [Testing for Elevated Inflammatory Markers in Parasite-Positive Samples (Classical and Bayesian Approach) and Fitting Logistic Regression Model] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/ImmunoMarkersAnalysis.html)
+* [Testing for Elevated Inflammatory Markers in Parasite-Positive Samples (Classical and Bayesian Approach) and Fitting a Logistic Regression Model] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/ImmunoMarkersAnalysis.html)
 <br>
 <p align="center">
 <a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/ImmunoMarkersAnalysis.html">
