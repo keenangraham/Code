@@ -1,6 +1,14 @@
 
 # Code Snippets 
 
+#### Python examples for Bayesian modeling:
+* [Multilevel Hierarchical Bayesian Model of Parasite Positivity by Location] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/hierarchical_bayesian_parasite_positivity_by_location.ipynb)
+<br>
+<p align="center">
+<a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/hierarchical_bayesian_parasite_positivity_by_location.ipynb">
+  <img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/all_countries_multi.png" height="1000">
+</p>
+
 #### Python examples for hypothesis testing using simulation:
 * [Testing for Elevated Inflammatory Markers in Parasite-Positive Samples (Classical and Bayesian Approach) and Fitting a Logistic Regression Model] (http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/ImmunoMarkersAnalysis.html)
 <br>
