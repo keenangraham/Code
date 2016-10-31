@@ -68,7 +68,7 @@
 * [Biosynthetic Gene Cluster Data and k-Mer Search] (https://biosynthetic-kmers.herokuapp.com/)
 <br>
 <p align="center">
-<a href="https://biosynthetic-kmers.herokuapp.com/" target="_blank"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/biosynthetic_kmer_a.png" align="middle" width="400" >
-</a> <a href="https://biosynthetic-kmers.herokuapp.com/" target="_blank"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/biosythentic_kmer_b.png" align="middle" width="400" ></a>
+<a href="https://biosynthetic-kmers.herokuapp.com/"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/biosynthetic_kmer_a.png" align="middle" width="400" >
+</a> <a href="https://biosynthetic-kmers.herokuapp.com/"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/biosythentic_kmer_b.png" align="middle" width="400" ></a>
 </p>
 
