@@ -63,12 +63,12 @@
 <p align="center">
 <a href="http://keenangraham.github.io/code/combination_tree/Organism_Cobo_Viz.html"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/Organism_Combo_Preview.png" align="middle"></a></p>
 
-#### Heroku-deployed web application with PostgreSQL, Django, ReactJS (SQL, Python, JavaScript, HTML, and CSS):
+#### Heroku-deployed web applications with PostgreSQL, Django, ReactJS (SQL, Python, JavaScript, HTML, and CSS):
 
 * [Biosynthetic Gene Cluster Data and k-Mer Search] (https://biosynthetic-kmers.herokuapp.com/)
 <br>
 <p align="center">
-<a href="https://biosynthetic-kmers.herokuapp.com/"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/biosynthetic_kmer_a.png" align="middle" width="400" >
-</a> <a href="https://biosynthetic-kmers.herokuapp.com/"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/biosythentic_kmer_b.png" align="middle" width="400" ></a>
+<a target="_blank" href="https://biosynthetic-kmers.herokuapp.com/"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/biosynthetic_kmer_a.png" align="middle" width="400" >
+</a> <a target="_blank" href="https://biosynthetic-kmers.herokuapp.com/"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/biosythentic_kmer_b.png" align="middle" width="400" ></a>
 </p>
 
