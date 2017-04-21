@@ -21,11 +21,13 @@
 </a>
 </p>
 <br>
+
 * [Testing for a Significant Seasonal Difference in Parasite Positivity](http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/Seasonal_Daily_Monthly_Parasitology_Results.ipynb)
 <br>
 <p align="center">
 <a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/Seasonal_Daily_Monthly_Parasitology_Results.ipynb"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/Seasonal_Positivity.png" align="middle" ></a></p>
 <br>
+
 * [Testing for a Significant Annual Difference in *Clostridium Difficile* Positivity](http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/CDIFF_Hypothesis_Testing.ipynb)
 <br>
 <p align="center">
@@ -40,11 +42,13 @@
 <p align="center">
 <a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/MergeVizStat.ipynb"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/Overview.png" align="middle" height="900"></a></p>
 <br>
-* [*Clostridium Difficile* Data Merge and Summary Statistics/Visualization](http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/CDIFF_Summary.ipynb) 
+
+* [*Clostridium Difficile* Data Merge and Summary Statistics/Visualization](http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/CDIFF_Summary.ipynb)
 <br>
 <p align="center">
 <a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/CDIFF_Summary.ipynb"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/CDIFFsum.png" align="middle"></a></p>
 <br>
+
 * [Parasitology Turnaround Time Visualization](http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/TAT_Viz.ipynb)
 <br>
 <p align="center">
