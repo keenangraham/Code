@@ -51,7 +51,7 @@
 <a href="http://nbviewer.jupyter.org/github/keenangraham/Code/blob/master/Python/TAT_Viz.ipynb"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/TAT_JUNE_27_2016lq.png" align="middle" height="750"></a></p>
 
 #### Interactive visualizations in D3.js (JavaScript, HTML, and CSS):
-* [Parasitology Monitoring Tool] (http://keenangraham.github.io/code/PMT_Demo/PMT_refact.html) [(JavaScript Code)](https://github.com/keenangraham/Code/blob/master/JavaScript/ParasitologyMonitoringTool/PMT_refact.js)
+* [Parasitology Monitoring Tool](http://keenangraham.github.io/code/PMT_Demo/PMT_refact.html) [(JavaScript Code)](https://github.com/keenangraham/Code/blob/master/JavaScript/ParasitologyMonitoringTool/PMT_refact.js)
 <br>
 <p align="center">
 <a href="http://keenangraham.github.io/code/PMT_Demo/PMT_refact.html"><img src="https://raw.githubusercontent.com/keenangraham/keenangraham.github.io/master/project/results/mtr.png" align="middle" width="400" >
